@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 
 namespace double_linked_list
 {
@@ -48,6 +49,18 @@ namespace double_linked_list
                 newNode.next = null;
                 START = newNode;
                 return;
+            }
+            /*if the node is to be inserted at between two Node*/
+            Node previous, current;
+            for(current = previous = START;
+                current != null && nim >= current.noMhs;
+                previous = current, current = current.next)
+            {
+                if (nim == current.noMhs)
+                {
+                    Console.WriteLine("\nDuplicate roll numbers not allowed");
+                    return;
+                }
             }
         }
     }
